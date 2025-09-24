@@ -61,16 +61,6 @@ def seed_data():
                 recommended_store="https://apple.com/ipad-pro-12-9",
                 specs="M2 chip, 12.9-inch Liquid Retina XDR, 128GB",
                 status="approved"
-            ),
-            Device(
-                name="Samsung Galaxy Tab S9",
-                brand="Samsung",
-                category="Tablet",
-                avg_price=899,
-                image_url="https://images.unsplash.com/photo-1612832025544-4f5e8e2f1b6d?w=500&auto=format&fit=crop&q=60",
-                recommended_store="https://samsung.com/galaxy-tab-s9",
-                specs="Snapdragon 8 Gen 2, 11-inch LTPS LCD, 128GB",
-                status="pending"
             )
         ]
 

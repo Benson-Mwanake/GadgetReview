@@ -6,7 +6,7 @@ click==8.3.0
 decorator==5.2.1
 executing==2.2.1
 Faker==37.8.0
-Flask==3.0.3
+Flask==2.2.5
 Flask-Bcrypt==1.0.1
 flask-cors==6.0.1
 Flask-JWT-Extended==4.7.1
@@ -14,7 +14,7 @@ Flask-Migrate==4.1.0
 Flask-RESTful==0.3.10
 Flask-SQLAlchemy==3.1.1
 greenlet==3.2.4
-gunicorn==22.0.0
+gunicorn==23.0.0
 ipdb==0.13.9
 ipython==9.5.0
 ipython_pygments_lexers==1.1.1
@@ -36,11 +36,12 @@ PyJWT==2.10.1
 pytz==2024.2
 setuptools==70.3.0
 six==1.17.0
-SQLAlchemy==2.0.30
+SQLAlchemy==2.0.29
+sqlalchemy-serializer==1.4.22
 stack-data==0.6.3
 toml==0.10.2
 traitlets==5.14.3
 typing_extensions==4.15.0
 tzdata==2025.2
 wcwidth==0.2.14
-Werkzeug==3.0.3
+Werkzeug==2.2.2

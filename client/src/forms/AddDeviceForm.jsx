@@ -1,8 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
-const API_URL = "http://localhost:5000/api";
+import API_URL from "../config";
 
 const AddDeviceSchema = Yup.object().shape({
   name: Yup.string().required("Required"),

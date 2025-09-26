@@ -3,8 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import ReviewForm from "../forms/ReviewForm";
 import ReviewCard from "../components/ReviewCard";
 import { AuthContext } from "../context/AuthContext";
+import API_URL from "../config";
 
-const API_URL = "http://localhost:5000";
 
 function fetchDeviceById(id) {
   return fetch(`${API_URL}/api/devices/${id}`).then((res) => {

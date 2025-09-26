@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Trash2 } from "lucide-react";
+import API_URL from "../config";
 
-const API_URL = "http://localhost:5000";
 
 function fetchAllDevices() {
   return fetch(`${API_URL}/api/devices`).then((res) => {

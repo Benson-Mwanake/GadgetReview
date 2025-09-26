@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -6,10 +7,9 @@ from config import Config
 from models import db, bcrypt
 from routes.device_routes import device_bp
 from routes.review_routes import review_bp
-from routes.auth_routes import auth_bp   
+from routes.auth_routes import auth_bp
 
 jwt = JWTManager()
-...
 
 
 def create_app():
@@ -19,7 +19,10 @@ def create_app():
     db.init_app(app)
     bcrypt.init_app(app)
     Migrate(app, db)
-    CORS(app, origins="http://localhost:3000")
+
+    cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:3000")
+    origins_list = [o.strip() for o in cors_origins.split(",") if o.strip()]
+    CORS(app, origins=origins_list)
 
     jwt.init_app(app)
 

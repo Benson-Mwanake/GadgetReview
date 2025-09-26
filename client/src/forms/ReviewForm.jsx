@@ -2,9 +2,7 @@ import React, { useContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { AuthContext } from "../context/AuthContext";
-
-const API_URL = "http://localhost:5000";
-
+import API_URL from "../config";
 
 async function addReview(review, token) {
   const res = await fetch(`${API_URL}/api/reviews`, {

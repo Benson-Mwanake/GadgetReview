@@ -10,7 +10,7 @@ The Gadget Review Website is a platform where users can explore different gadget
 
 ## Screenshot
 
-(![alt text](image.png))
+![alt text](image.png)
 
 ![alt text](image-1.png)
 

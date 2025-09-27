@@ -22,7 +22,13 @@ def create_app():
 
     cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:3000")
     origins_list = [o.strip() for o in cors_origins.split(",") if o.strip()]
-    CORS(app, origins=origins_list)
+    CORS(
+        app,
+        origins=origins_list,
+        supports_credentials=True,
+        methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allow_headers=["Content-Type", "Authorization"],
+    )
 
     jwt.init_app(app)
 

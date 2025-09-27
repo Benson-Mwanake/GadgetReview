@@ -1,17 +1,19 @@
 from app import create_app, db
-from models import User,Device, Review
+from models import User, Device, Review
+from datetime import datetime
 
 app = create_app()
+
 
 def seed_data():
     with app.app_context():
         print("Seeding database...")
 
-        Review.query.delete()
-        Device.query.delete()
-        User.query.delete()
+        if User.query.first() or Device.query.first() or Review.query.first():
+            print("Database already has data. Skipping seeding.")
+            return
 
-        #-----users-----
+        # ----- Users -----
         user1 = User(username="alice", email="alice@example.com")
         user1.set_password("password123")
 
@@ -25,7 +27,7 @@ def seed_data():
         db.session.commit()
         print("Users seeded!")
 
-        # Devices data
+        # ----- Devices -----
         devices_data = [
             {
                 "id": "1",
@@ -208,203 +210,203 @@ def seed_data():
                 "recommended_store": "https://store.google.com/product/nest_hub",
             },
         ]
-
         devices = [Device(**d) for d in devices_data]
         db.session.bulk_save_objects(devices)
         db.session.commit()
-
         print("Devices seeded!")
 
+        # ----- Reviews -----
         reviews_data = [
-        {
-      "id": "1",
-      "deviceId": "1",
-      "user_id": 101,
-      "rating": 5,
-      "comment": "Amazing phone, battery lasts all day!",
-      "created_at": "2024-04-10T12:00:00Z"
-    },
-    {
-      "id": "2",
-      "deviceId": "1",
-      "user_id": 102,
-      "rating": 4,
-      "comment": "Great camera, but a bit expensive.",
-      "created_at": "2024-04-11T12:00:00Z"
-    },
-    {
-      "id": "3",
-      "deviceId": "1",
-      "user_id": 103,
-      "rating": 5,
-      "comment": "The best phone I have ever owned. The new action button is a game-changer.",
-      "created_at": "2024-04-12T12:00:00Z"
-    },
-    {
-      "id": "4",
-      "deviceId": "2",
-      "user_id": 201,
-      "rating": 5,
-      "comment": "Best Android phone I’ve used so far! The AI features are surprisingly useful.",
-      "created_at": "2024-04-13T12:00:00Z"
-    },
-    {
-      "id": "5",
-      "deviceId": "2",
-      "user_id": 202,
-      "rating": 4,
-      "comment": "The display is incredibly vibrant. Performance is top-notch.",
-      "created_at": "2024-04-14T12:00:00Z"
-    },
-    {
-      "id": "6",
-      "deviceId": "3",
-      "user_id": 301,
-      "rating": 5,
-      "comment": "The M3 chip is a marvel. This laptop is silent and extremely fast.",
-      "created_at": "2024-04-15T12:00:00Z"
-    },
-    {
-      "id": "7",
-      "deviceId": "3",
-      "user_id": 302,
-      "rating": 3,
-      "comment": "Good performance, but the design is getting old. Wish they'd updated the look.",
-      "created_at": "2024-04-16T12:00:00Z"
-    },
-    {
-      "id": "8",
-      "deviceId": "4",
-      "user_id": 401,
-      "rating": 5,
-      "comment": "This laptop is a beast for video editing! The OLED screen is beautiful.",
-      "created_at": "2024-04-17T12:00:00Z"
-    },
-    {
-      "id": "9",
-      "deviceId": "5",
-      "user_id": 501,
-      "rating": 4,
-      "comment": "Perfect for drawing and taking notes. The screen is incredible.",
-      "created_at": "2024-04-18T12:00:00Z"
-    },
-    {
-      "id": "10",
-      "deviceId": "6",
-      "user_id": 601,
-      "rating": 4,
-      "comment": "A solid tablet for the price. The screen is vibrant and the S Pen is a nice bonus.",
-      "created_at": "2024-04-19T12:00:00Z"
-    },
-    {
-      "id": "11",
-      "deviceId": "7",
-      "user_id": 701,
-      "rating": 5,
-      "comment": "The camera on this phone is unreal! The software features are fantastic.",
-      "created_at": "2024-04-20T12:00:00Z"
-    },
-    {
-      "id": "12",
-      "deviceId": "8",
-      "user_id": 801,
-      "rating": 4,
-      "comment": "Love the flexibility of the 2-in-1 design. Great for work and media.",
-      "created_at": "2024-04-21T12:00:00Z"
-    },
-    {
-      "id": "13",
-      "deviceId": "9",
-      "user_id": 901,
-      "rating": 4,
-      "comment": "Fast and reliable. Perfect for a student on a budget.",
-      "created_at": "2024-04-22T12:00:00Z"
-    },
-    {
-      "id": "14",
-      "deviceId": "10",
-      "user_id": 1001,
-      "rating": 4,
-      "comment": "Great charging speed! Battery life is decent too.",
-      "created_at": "2024-04-23T12:00:00Z"
-    },
-    {
-      "id": "15",
-      "deviceId": "11",
-      "user_id": 1101,
-      "rating": 5,
-      "comment": "The perfect tablet for a power user. Replaced my old laptop.",
-      "created_at": "2024-04-24T12:00:00Z"
-    },
-    {
-      "id": "16",
-      "deviceId": "12",
-      "user_id": 1201,
-      "rating": 4,
-      "comment": "A very capable handheld. Can't believe it runs Windows.",
-      "created_at": "2024-04-25T12:00:00Z"
-    },
-    {
-      "id": "17",
-      "deviceId": "13",
-      "user_id": 1301,
-      "rating": 5,
-      "comment": "Beautiful design and great for travel. The battery lasts all day.",
-      "created_at": "2024-04-26T12:00:00Z"
-    },
-    {
-      "id": "18",
-      "deviceId": "14",
-      "user_id": 1401,
-      "rating": 4,
-      "comment": "A unique look and smooth performance. Excellent value for the price.",
-      "created_at": "2024-04-27T12:00:00Z"
-    },
-    {
-      "id": "19",
-      "deviceId": "15",
-      "user_id": 1501,
-      "rating": 3,
-      "comment": "A basic tablet, but good enough for watching videos and light browsing.",
-      "created_at": "2024-04-28T12:00:00Z"
-    },
-    {
-      "id": "20",
-      "deviceId": "16",
-      "user_id": 1601,
-      "rating": 4,
-      "comment": "Great fitness tracking and a bright display. Looks stylish too.",
-      "created_at": "2024-04-29T12:00:00Z"
-    },
-    {
-      "id": "21",
-      "deviceId": "17",
-      "user_id": 1701,
-      "rating": 5,
-      "comment": "My go-to device for reading. It's so light and easy on the eyes.",
-      "created_at": "2024-04-30T12:00:00Z"
-    },
-    {
-      "id": "22",
-      "deviceId": "18",
-      "user_id": 1801,
-      "rating": 4,
-      "comment": "Convenient for controlling my smart home devices with voice commands.",
-      "created_at": "2024-05-01T12:00:00Z"
-    },
+            {
+                "id": "1",
+                "deviceId": "1",
+                "user_id": 101,
+                "rating": 5,
+                "comment": "Amazing phone, battery lasts all day!",
+                "created_at": "2024-04-10T12:00:00Z",
+            },
+            {
+                "id": "2",
+                "deviceId": "1",
+                "user_id": 102,
+                "rating": 4,
+                "comment": "Great camera, but a bit expensive.",
+                "created_at": "2024-04-11T12:00:00Z",
+            },
+            {
+                "id": "3",
+                "deviceId": "1",
+                "user_id": 103,
+                "rating": 5,
+                "comment": "The best phone I have ever owned. The new action button is a game-changer.",
+                "created_at": "2024-04-12T12:00:00Z",
+            },
+            {
+                "id": "4",
+                "deviceId": "2",
+                "user_id": 201,
+                "rating": 5,
+                "comment": "Best Android phone I’ve used so far! The AI features are surprisingly useful.",
+                "created_at": "2024-04-13T12:00:00Z",
+            },
+            {
+                "id": "5",
+                "deviceId": "2",
+                "user_id": 202,
+                "rating": 4,
+                "comment": "The display is incredibly vibrant. Performance is top-notch.",
+                "created_at": "2024-04-14T12:00:00Z",
+            },
+            {
+                "id": "6",
+                "deviceId": "3",
+                "user_id": 301,
+                "rating": 5,
+                "comment": "The M3 chip is a marvel. This laptop is silent and extremely fast.",
+                "created_at": "2024-04-15T12:00:00Z",
+            },
+            {
+                "id": "7",
+                "deviceId": "3",
+                "user_id": 302,
+                "rating": 3,
+                "comment": "Good performance, but the design is getting old. Wish they'd updated the look.",
+                "created_at": "2024-04-16T12:00:00Z",
+            },
+            {
+                "id": "8",
+                "deviceId": "4",
+                "user_id": 401,
+                "rating": 5,
+                "comment": "This laptop is a beast for video editing! The OLED screen is beautiful.",
+                "created_at": "2024-04-17T12:00:00Z",
+            },
+            {
+                "id": "9",
+                "deviceId": "5",
+                "user_id": 501,
+                "rating": 4,
+                "comment": "Perfect for drawing and taking notes. The screen is incredible.",
+                "created_at": "2024-04-18T12:00:00Z",
+            },
+            {
+                "id": "10",
+                "deviceId": "6",
+                "user_id": 601,
+                "rating": 4,
+                "comment": "A solid tablet for the price. The screen is vibrant and the S Pen is a nice bonus.",
+                "created_at": "2024-04-19T12:00:00Z",
+            },
+            {
+                "id": "11",
+                "deviceId": "7",
+                "user_id": 701,
+                "rating": 5,
+                "comment": "The camera on this phone is unreal! The software features are fantastic.",
+                "created_at": "2024-04-20T12:00:00Z",
+            },
+            {
+                "id": "12",
+                "deviceId": "8",
+                "user_id": 801,
+                "rating": 4,
+                "comment": "Love the flexibility of the 2-in-1 design. Great for work and media.",
+                "created_at": "2024-04-21T12:00:00Z",
+            },
+            {
+                "id": "13",
+                "deviceId": "9",
+                "user_id": 901,
+                "rating": 4,
+                "comment": "Fast and reliable. Perfect for a student on a budget.",
+                "created_at": "2024-04-22T12:00:00Z",
+            },
+            {
+                "id": "14",
+                "deviceId": "10",
+                "user_id": 1001,
+                "rating": 4,
+                "comment": "Great charging speed! Battery life is decent too.",
+                "created_at": "2024-04-23T12:00:00Z",
+            },
+            {
+                "id": "15",
+                "deviceId": "11",
+                "user_id": 1101,
+                "rating": 5,
+                "comment": "The perfect tablet for a power user. Replaced my old laptop.",
+                "created_at": "2024-04-24T12:00:00Z",
+            },
+            {
+                "id": "16",
+                "deviceId": "12",
+                "user_id": 1201,
+                "rating": 4,
+                "comment": "A very capable handheld. Can't believe it runs Windows.",
+                "created_at": "2024-04-25T12:00:00Z",
+            },
+            {
+                "id": "17",
+                "deviceId": "13",
+                "user_id": 1301,
+                "rating": 5,
+                "comment": "Beautiful design and great for travel. The battery lasts all day.",
+                "created_at": "2024-04-26T12:00:00Z",
+            },
+            {
+                "id": "18",
+                "deviceId": "14",
+                "user_id": 1401,
+                "rating": 4,
+                "comment": "A unique look and smooth performance. Excellent value for the price.",
+                "created_at": "2024-04-27T12:00:00Z",
+            },
+            {
+                "id": "19",
+                "deviceId": "15",
+                "user_id": 1501,
+                "rating": 3,
+                "comment": "A basic tablet, but good enough for watching videos and light browsing.",
+                "created_at": "2024-04-28T12:00:00Z",
+            },
+            {
+                "id": "20",
+                "deviceId": "16",
+                "user_id": 1601,
+                "rating": 4,
+                "comment": "Great fitness tracking and a bright display. Looks stylish too.",
+                "created_at": "2024-04-29T12:00:00Z",
+            },
+            {
+                "id": "21",
+                "deviceId": "17",
+                "user_id": 1701,
+                "rating": 5,
+                "comment": "My go-to device for reading. It's so light and easy on the eyes.",
+                "created_at": "2024-04-30T12:00:00Z",
+            },
+            {
+                "id": "22",
+                "deviceId": "18",
+                "user_id": 1801,
+                "rating": 4,
+                "comment": "Convenient for controlling my smart home devices with voice commands.",
+                "created_at": "2024-05-01T12:00:00Z",
+            },
         ]
 
-        from datetime import datetime
         for r in reviews_data:
-            r["deviceId"] = r.pop("deviceId")
-            r["created_at"] = datetime.fromisoformat(r["created_at"].replace("Z", "+00:00"))
+            r["created_at"] = datetime.fromisoformat(
+                r["created_at"].replace("Z", "+00:00")
+            )
 
         reviews = [Review(**r) for r in reviews_data]
         db.session.bulk_save_objects(reviews)
         db.session.commit()
-
         print("Reviews seeded!")
+
         print("Database seeding completed!")
+
 
 if __name__ == "__main__":
     seed_data()

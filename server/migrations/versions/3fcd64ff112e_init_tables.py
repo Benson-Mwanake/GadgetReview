@@ -1,8 +1,8 @@
-"""Add deviceId column to reviews table
+"""init tables
 
-Revision ID: 11da61b7ba08
+Revision ID: 3fcd64ff112e
 Revises: 
-Create Date: 2025-09-25 12:29:09.943135
+Create Date: 2025-09-27 23:02:28.437654
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '11da61b7ba08'
+revision = '3fcd64ff112e'
 down_revision = None
 branch_labels = None
 depends_on = None

@@ -1,6 +1,5 @@
 from app import create_app, db
 from models import User,Device, Review
-from datetime import datetime
 
 app = create_app()
 
@@ -8,11 +7,11 @@ def seed_data():
     with app.app_context():
         print("Seeding database...")
 
-        if User.query.first():
-            print("Database already has data, skipping seeding.")
-            return
+        Review.query.delete()
+        Device.query.delete()
+        User.query.delete()
 
-        # -----users-----
+        #-----users-----
         user1 = User(username="alice", email="alice@example.com")
         user1.set_password("password123")
 
@@ -395,7 +394,9 @@ def seed_data():
     },
         ]
 
+        from datetime import datetime
         for r in reviews_data:
+            r["deviceId"] = r.pop("deviceId")
             r["created_at"] = datetime.fromisoformat(r["created_at"].replace("Z", "+00:00"))
 
         reviews = [Review(**r) for r in reviews_data]

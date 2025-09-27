@@ -37,7 +37,7 @@ Clean, responsive UI for desktop and mobile
 
 ### View Live Site
 
-Visit the deployed application at: [React Blog App](https://blog-app-sdf-ft11.netlify.app/)
+Visit the deployed application at: [GadgetReview](https://gadgetreviewsite.netlify.app/)
 
 The live site allows you to:
 
@@ -84,7 +84,7 @@ If you want to run the project locally, you'll need:
 4. Run the frontend server:
 
    ```bash
-   npm run dev
+   npm start
    ```
 
 5. Open your browser and visit `http://localhost:5173`

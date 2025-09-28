@@ -37,7 +37,7 @@ Clean, responsive UI for desktop and mobile
 
 ### View Live Site
 
-Visit the deployed application at: [GadgetReview](https://gadgetreviewsite.netlify.app/)
+Visit the deployed application at: [GadgetReview](https://gadgetreviewsite.netlify.app)
 
 The live site allows you to:
 
@@ -87,7 +87,7 @@ If you want to run the project locally, you'll need:
    npm start
    ```
 
-5. Open your browser and visit `http://localhost:5173`
+5. Open your browser and visit `http://localhost:5000`
 
 6. Install backend dependencies
     ```
@@ -103,6 +103,7 @@ If you want to run the project locally, you'll need:
 7.Run the backend    
     ```
     cd server
+    export FLASK_APP=app.py
     flask run
     ```
 
@@ -119,8 +120,7 @@ If you want to run the project locally, you'll need:
 
 ### Backend API
 
-- Repository: [Blog API Repository](https://github.com/dennis-kiboi/blog-app-sdf-ft11-json-server)
-- Deployed API: [Live API URL](https://blog-app-sdf-ft11-json-server.onrender.com)
+- Deployed API: [Live API URL](https://gadgetreview-5c3b.onrender.com)
 
 ## Support and Contact Details
 

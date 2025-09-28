@@ -203,14 +203,14 @@ def seed_data():
                 "deviceId": 1,
                 "user_id": 1,
                 "rating": 5,
-                "comment": "Amazing phone, battery lasts all day!",
+                "comment": "The iPhone 15 Pro is Apples most refined smartphone to date. The titanium frame makes it lighter in the hand while still feeling extremely premium. The new Action Button is surprisingly useful, letting you customize it for camera, shortcuts, or silent mode. The A17 Pro chip is blazing fast, and paired with iOS 17, everything feels buttery smooth.Camera performance is stellar — photos in daylight are crisp, and low-light shots are significantly better thanks to improved sensors. The 5x telephoto lens (exclusive to the Pro Max) is a game-changer for zoom photography. Battery life is solid, lasting a full day even under heavy use.That said, the price is steep, especially when you add storage upgrades. Apples refusal to increase charging speeds beyond 20W is also frustrating compared to Android competitors. Still, for anyone in the Apple ecosystem, this is the best iPhone yet.",
                 "created_at": "2024-04-10T12:00:00Z",
             },
             {
                 "deviceId": 1,
                 "user_id": 2,
                 "rating": 4,
-                "comment": "Great camera, but a bit expensive.",
+                "comment": "The Galaxy S23 Ultra is the definition of a powerhouse. The massive 6.8-inch AMOLED display is bright, vibrant, and perfect for watching movies or gaming. The 120Hz refresh rate keeps scrolling smooth, and Samsungs UI is packed with customization features.Performance is unmatched thanks to the Snapdragon 8 Gen 2 processor. Multitasking, gaming, and productivity are all flawless. The built-in S Pen remains a unique advantage, turning the phone into a note-taking and sketching tool.Cameras are where this phone truly shines — the 200MP main sensor captures insane detail, and the zoom capabilities (up to 10x optical) still beat most competitors. Night photography is solid, though sometimes colors can be oversaturated.Downsides? The size is not for everyone — its heavy and hard to use one-handed. And at this price, its a serious investment. But if you want the most feature-packed Android phone, this is it.Verdict: The ultimate Android flagship with unmatched versatility and cameras.",
                 "created_at": "2024-04-11T12:00:00Z",
             },
             {
@@ -273,7 +273,7 @@ def seed_data():
                 "deviceId": 7,
                 "user_id": 2,
                 "rating": 5,
-                "comment": "The camera on this phone is unreal! The software features are fantastic.",
+                "comment": "The Pixel 8 Pro shows Google doubling down on AI. The Tensor G3 chip isnt the fastest on benchmarks, but it enables features like Magic Eraser, AI-powered photo editing, and live transcription that are genuinely useful.The cameras remain Pixels strongest asset. Photos look natural, with excellent dynamic range and skin tones. Low-light performance is stellar, and the new Pro controls give photography enthusiasts more freedom.Battery life is decent — about a day and a half — but not class-leading. The display is sharp and bright, though not as eye-popping as Samsungs. On the software side, stock Android 14 is clean, fast, and ad-free, and the promise of 7 years of updates is huge.The main drawback is raw performance; heavy gamers may prefer something faster. Also, Googles hardware design is polarizing, with the camera bar being love-it-or-hate-it.Verdict: A smart, camera-first flagship with AI smarts and unmatched software support.",
                 "created_at": "2024-04-20T12:00:00Z",
             },
             {

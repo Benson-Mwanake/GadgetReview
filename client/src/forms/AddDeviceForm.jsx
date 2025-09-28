@@ -32,7 +32,7 @@ export default function AddDeviceForm({ onSuccess }) {
       validationSchema={AddDeviceSchema}
       onSubmit={async (values, { setSubmitting, resetForm }) => {
         try {
-          const res = await fetch(`${API_URL}/devices`, {
+          const res = await fetch(`${API_URL}/api/devices`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ ...values, status: "pending" }),

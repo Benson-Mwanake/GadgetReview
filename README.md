@@ -98,14 +98,15 @@ If you want to run the project locally, you'll need:
 7. activate the virtual environment
     ```
     pipenv shell
-    ```    
+    ```
 
-7.Run the backend    
-    ```
-    cd server
-    export FLASK_APP=app.py
-    flask run
-    ```
+8. Run the backend
+   ```bash
+   cd server
+   export FLASK_APP=app.py
+   flask run
+   ```
+
 
 ## Technologies Used
 
